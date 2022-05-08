@@ -40,6 +40,8 @@
 </template>
 
 <style lang="sass">
+body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
+  font-family: 'Ubuntu', 'Noto Sans TC', sans-serif !important
 * 
   box-sizing: border-box
 .text-center
@@ -78,7 +80,7 @@ footer
   border-radius: 4px
 label
   display: inline-block
-  font-size: 1.2rem 
+  font-size: 1rem 
   margin-top: 16px
   margin-bottom: 8px  
   color: #666
@@ -105,7 +107,7 @@ input
   font-size: 2rem
   padding: 8px 16px
   display: block
-  margin: 0 auto
+  margin: 8px auto
   margin-top: 32px
   border: none
   border-radius: 4px
@@ -122,7 +124,7 @@ export default {
   data() {
     return {
       title: '[#{group}] 填寫蓬蓬鬆餅預約表單',
-      description: '請#{group}組協助填寫蓬蓬鬆餅預約表單，謝謝！\n\n不支援上傳圖片，若你要插入圖片請先在其他地方上傳再以 markdown 格式插入',
+      description: '請#{group}組協助填寫蓬蓬鬆餅預約表單，謝謝！\n\n不支援上傳圖片，若你要插入圖片，請先上傳在其他地方再以 markdown 格式插入。',
       groupList: [
         '議程',
         '總召',
