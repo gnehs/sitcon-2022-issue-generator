@@ -32,17 +32,18 @@
     <div class="links">
       <a v-for="link in links" :href="link.href" target="_blank" :key="link.title">{{ link.title }}</a>
     </div>
-    <footer>
-      Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a>.<br>
-      Made with 🥞 in Taiwan.
-    </footer>
   </div>
+  <footer>
+    Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a>.<br>
+    Made with 🥞 in Taiwan.
+  </footer>
 </template>
 
 <style lang="sass">
 \:root
   --theme-color: 5,91,255
   --border-color: #ddd
+  line-height: 1.5
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 * 
@@ -53,7 +54,6 @@ body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-ma
   max-width: 960px
   margin: 0 auto
   font-size: 16px
-  line-height: 1.5
  
 .title
   font-size: 1.25rem
@@ -77,9 +77,11 @@ header
     font-size: 2rem
 footer
   font-size: 0.875rem
-  margin: 32px 0
+  margin-top: 16px
+  padding: 32px 0
   text-align: center
   color: #999
+  background-color: #fafafa
 
 .box
   padding: 12px 24px 
@@ -176,6 +178,7 @@ export default {
             editor.insert(function (selected) {
               return {
                 text: `#{group}`,
+                selected: `#{group}`,
               };
             });
           },
