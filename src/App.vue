@@ -146,8 +146,8 @@ export default {
     updateLinks() {
       this.links = []
       for (let group of this.groupList) {
-        let title = this.title.replace('#{group}', group)
-        let description = this.description.replace('#{group}', group)
+        let title = this.title.replaceAll('#{group}', group)
+        let description = this.description.replaceAll('#{group}', group)
         description = `/label "Status::Inbox" /label "組別::${group}組"\n` + description
         let link = new URL('https://gitlab.com/sitcon-tw/2022/2022-board/-/issues/new')
         link.searchParams.append('issue[title]', title)
