@@ -74,9 +74,11 @@ footer
   color: #999
 
 .box
-  padding: 8px 16px 
+  padding: 12px 24px 
   margin-bottom: 16px
   border-left: 4px solid blue 
+  background-color: rgba(255,0,255,.05)
+  border-radius: 0 16px 16px 0
 label
   display: inline-block
   font-size: 1rem 
