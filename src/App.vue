@@ -41,7 +41,7 @@
 
 <style lang="sass">
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
-  font-family: 'Ubuntu', 'Noto Sans TC', sans-serif !important
+  font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 * 
   box-sizing: border-box
 .text-center
@@ -135,6 +135,8 @@ export default {
         '財務',
         '紀錄',
         '行政',
+        '行銷',
+        '場務',
       ],
       links: []
     }
