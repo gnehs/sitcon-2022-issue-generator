@@ -40,6 +40,9 @@
 </template>
 
 <style lang="sass">
+\:root
+  --theme-color: 5,91,255
+  --border-color: #ddd
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 * 
@@ -55,12 +58,17 @@ body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-ma
 .title
   font-size: 1.25rem
   font-weight: bold
-  color: blue
+  color: rgb(var(--theme-color)) 
   margin-bottom: 8px
 p
   font-size: 1rem
   opacity: 0.5
   margin: 0
+a
+  color: rgb(var(--theme-color)) 
+  &:hover
+    opacity: 0.8
+    
 header
   padding: 64px 0
   margin-bottom: 16px
@@ -76,34 +84,34 @@ footer
 .box
   padding: 12px 24px 
   margin-bottom: 16px
-  border-left: 4px solid blue 
-  background-color: rgba(255,0,255,.05)
+  border-left: 4px solid rgb(var(--theme-color)) 
+  background-color: rgba(var(--theme-color),.05)
   border-radius: 0 16px 16px 0
 label
   display: inline-block
   font-size: 1rem 
   margin-top: 16px
   margin-bottom: 8px  
-  color: #666
+  color: #000
+  opacity: .7
 input
   width: 100%
-  padding: 8px
-  border: 1px solid #f0f0f0
+  padding: 8px 12px
+  border: 1px solid var(--border-color)
   border-radius: 4px
-  font-size: 1.2rem
+  font-size: 1.25rem
+  transition: border-color 0.2s ease-in-out
   &:focus
     outline: none
-    border: 1px solid blue
+    border: 1px solid rgb(var(--theme-color)) 
 .links
   display: flex
   flex-wrap: wrap
   justify-content: center
   align-items: center
   gap: 16px 
-  a
-    color: #666
 .magic-button
-  background-color: rgb(5,91,255)
+  background-color: rgb(var(--theme-color))
   color: #fff
   font-size: 2rem 
   display: block
@@ -115,11 +123,14 @@ input
   cursor: pointer
   transition: all .2s ease-in-out
   &:hover
-    box-shadow: 0 10px 20px -10px rgba(5,91,255,1)
+    box-shadow: 0 10px 20px -10px rgba(var(--theme-color),1)
     transform: translateY(-3px)
   &:active
-    box-shadow: 0 5px 10px -5px rgba(5,91,255,1)
+    box-shadow: 0 5px 10px -5px rgba(var(--theme-color),1)
     transform: translateY(-1px)
+.v-md-editor
+  box-shadow: none !important
+  border: 1px solid var(--border-color)
 .v-pancake:before
   content: "🥞"
 .v-name:before
