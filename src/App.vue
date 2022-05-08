@@ -2,7 +2,6 @@
 <template>
   <header>
     <div class="container">
-
       <div class="title">
         SITCON 2022 Issue 小精靈
       </div>
@@ -34,7 +33,8 @@
       <a v-for="link in links" :href="link.href" target="_blank" :key="link.title">{{ link.title }}</a>
     </div>
     <footer>
-      Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a>
+      Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a>.<br>
+      Made with 🥞 in Taiwan.
     </footer>
   </div>
 </template>
@@ -74,10 +74,9 @@ footer
   color: #999
 
 .box
-  padding: 16px 
+  padding: 8px 16px 
   margin-bottom: 16px
-  border: 1px solid #f0f0f0
-  border-radius: 4px
+  border-left: 4px solid blue 
 label
   display: inline-block
   font-size: 1rem 
@@ -124,7 +123,7 @@ export default {
   data() {
     return {
       title: '[#{group}] 填寫蓬蓬鬆餅預約表單',
-      description: '請#{group}組協助填寫蓬蓬鬆餅預約表單，謝謝！\n\n不支援上傳圖片，若你要插入圖片，請先上傳在其他地方再以 markdown 格式插入。',
+      description: '請#{group}組協助填寫蓬蓬鬆餅預約表單。\n\n[傳送門](https://pancake.gnehs.net/)',
       groupList: [
         '議程',
         '總召',
