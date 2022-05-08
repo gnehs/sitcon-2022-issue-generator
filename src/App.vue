@@ -24,7 +24,7 @@
     <input v-model="title" @input="updateLinks" />
 
     <label>Description</label>
-    <v-md-editor v-model="description" height="400px" @change="updateLinks"></v-md-editor>
+    <v-md-editor left-toolbar="undo redo | h bold italic strikethrough quote | ul ol table hr | name pancake" right-toolbar="preview" v-model="description" height="400px" @change="updateLinks" :toolbar="toolbar"></v-md-editor>
 
 
     <button @click="createIssue" class="magic-button">🪄 來點魔法！</button>
@@ -103,21 +103,27 @@ input
   a
     color: #666
 .magic-button
-  background-color: #0000ff
+  background-color: rgb(5,91,255)
   color: #fff
-  font-size: 2rem
-  padding: 8px 16px
+  font-size: 2rem 
   display: block
   margin: 8px auto
   margin-top: 32px
   border: none
-  border-radius: 4px
+  border-radius: 8px
+  padding: .5em .75em
   cursor: pointer
+  transition: all .2s ease-in-out
   &:hover
-    background-color: #0000cc
+    box-shadow: 0 10px 20px -10px rgba(5,91,255,1)
+    transform: translateY(-3px)
   &:active
-    background-color: #000099
-
+    box-shadow: 0 5px 10px -5px rgba(5,91,255,1)
+    transform: translateY(-1px)
+.v-pancake:before
+  content: "🥞"
+.v-name:before
+  content: "📛"
 </style>
 <script>
 
@@ -139,7 +145,31 @@ export default {
         '行銷',
         '場務',
       ],
-      links: []
+      links: [],
+      toolbar: {
+        pancake: {
+          icon: 'v-pancake',
+          title: '插入蓬蓬鬆餅',
+          action(editor) {
+            editor.insert(function (selected) {
+              return {
+                text: `🥞`,
+              };
+            });
+          },
+        },
+        name: {
+          icon: 'v-name',
+          title: '插入組別名稱',
+          action(editor) {
+            editor.insert(function (selected) {
+              return {
+                text: `#{group}`,
+              };
+            });
+          },
+        },
+      },
     }
   },
   mounted() {
