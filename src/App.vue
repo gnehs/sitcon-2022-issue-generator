@@ -7,7 +7,7 @@
         SITCON 2022 Issue 小精靈
       </div>
       <p>
-        幫你開 Issue 小精靈
+        幫你開 Issue 的小精靈
       </p>
     </div>
   </header>
@@ -150,7 +150,7 @@ export default {
       for (let group of this.groupList) {
         let title = this.title.replaceAll('#{group}', group)
         let description = this.description.replaceAll('#{group}', group)
-        description = `/label "Status::Inbox" /label "組別::${group}組"\n` + description
+        description = `/label "Status::Inbox" "組別::${group}組"\n` + description
         let link = new URL('https://gitlab.com/sitcon-tw/2022/2022-board/-/issues/new')
         link.searchParams.append('issue[title]', title)
         link.searchParams.append('issue[description]', description)
