@@ -26,7 +26,7 @@ jobs:
     - name: Install npm packages
       run: npm install
     - name: Generate Pages
-      run: npm run build  
+      run: npm run build --base=/sitcon-2022-issue-generator/
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
