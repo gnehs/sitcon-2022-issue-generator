@@ -51,6 +51,7 @@ body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-ma
 .text-center
   text-align: center
 .container 
+  width: calc(100vw - 20px)
   max-width: 960px
   margin: 0 auto
   font-size: 16px
@@ -84,7 +85,7 @@ footer
   background-color: #fafafa
 
 .box
-  padding: 12px 24px 
+  padding: 16px 24px 
   margin-bottom: 16px
   border-left: 4px solid rgb(var(--theme-color)) 
   background-color: rgba(var(--theme-color),.05)
