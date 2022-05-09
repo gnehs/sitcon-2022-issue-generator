@@ -2,31 +2,28 @@
 <template>
   <header>
     <div class="container">
-      <div class="title">
-        SITCON 2022 Issue 小精靈
-      </div>
-      <p>
-        幫你開 Issue 的小精靈
-      </p>
+      <div class="title"> SITCON 2022 Issue 小精靈 </div>
+      <p> 幫你開 Issue 的小精靈 </p>
     </div>
   </header>
   <div class="container">
-
     <div class="box">
       <div class="title">
         小提醒
       </div>
-      <p>
-        在 Title 或 Description 輸入 #{group} 會自動帶入組別名稱。
-      </p>
+      <p> 在 Title 或 Description 輸入 #{group} 會自動帶入組別名稱。 </p>
     </div>
     <label>Title</label>
     <input v-model="title" @input="updateLinks" />
-
     <label>Description</label>
-    <v-md-editor left-toolbar="undo redo | h bold italic strikethrough quote | ul ol table hr | name pancake" right-toolbar="preview" v-model="description" height="400px" @change="updateLinks" :toolbar="toolbar"></v-md-editor>
-
-
+    <v-md-editor
+      left-toolbar="undo redo | h bold italic strikethrough quote | ul ol table hr | name pancake"
+      right-toolbar="preview"
+      v-model="description"
+      height="400px"
+      @change="updateLinks"
+      :toolbar="toolbar">
+    </v-md-editor>
     <button @click="createIssue" class="magic-button">🪄 來點魔法！</button>
     <p class="text-center">若魔法施展失敗，請檢查瀏覽器是否封鎖了快顯視窗，或直接點擊下方連結。</p>
     <div class="links">
