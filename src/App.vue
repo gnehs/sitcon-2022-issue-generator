@@ -35,7 +35,8 @@
   </div>
   <footer>
     Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a>.<br>
-    Made with 🥞 in Taiwan.
+    Made with 🥞 in Taiwan.<br>
+    <a href="https://github.com/gnehs/sitcon-2022-issue-generator" target="_blank">GitHub</a>
   </footer>
 </template>
 
@@ -48,23 +49,6 @@ body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-ma
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 * 
   box-sizing: border-box
-.text-center
-  text-align: center
-.container 
-  width: calc(100vw - 20px)
-  max-width: 960px
-  margin: 0 auto
-  font-size: 16px
- 
-.title
-  font-size: 1.25rem
-  font-weight: bold
-  color: rgb(var(--theme-color)) 
-  margin-bottom: 8px
-p
-  font-size: 1rem
-  opacity: 0.5
-  margin: 0
 a
   color: rgb(var(--theme-color)) 
   &:hover
@@ -84,12 +68,6 @@ footer
   color: #999
   background-color: #fafafa
 
-.box
-  padding: 16px 24px 
-  margin-bottom: 16px
-  border-left: 4px solid rgb(var(--theme-color)) 
-  background-color: rgba(var(--theme-color),.05)
-  border-radius: 0 16px 16px 0
 label
   display: inline-block
   font-size: 1rem 
@@ -107,6 +85,28 @@ input
   &:focus
     outline: none
     border: 1px solid rgb(var(--theme-color)) 
+p
+  font-size: 1rem
+  opacity: 0.5
+  margin: 0
+.text-center
+  text-align: center
+.container 
+  width: calc(100vw - 20px)
+  max-width: 960px
+  margin: 0 auto
+  font-size: 16px
+.title
+  font-size: 1.25rem
+  font-weight: bold
+  color: rgb(var(--theme-color)) 
+  margin-bottom: 8px
+.box
+  padding: 16px 24px 
+  margin-bottom: 16px
+  border-left: 4px solid rgb(var(--theme-color)) 
+  background-color: rgba(var(--theme-color),.05)
+  border-radius: 0 16px 16px 0
 .links
   display: flex
   flex-wrap: wrap
