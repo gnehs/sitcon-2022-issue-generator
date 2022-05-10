@@ -53,7 +53,7 @@ a
 header
   padding: 64px 0
   margin-bottom: 16px
-  background-color: #fafafa
+  background-color: rgba(var(--theme-color),.05)
   .title
     font-size: 2rem
 footer
@@ -62,15 +62,15 @@ footer
   padding: 32px 0
   text-align: center
   color: #999
-  background-color: #fafafa
+  background-color: rgba(var(--theme-color),.05)
 
 label
   display: inline-block
   font-size: 1rem
   margin-top: 16px
   margin-bottom: 8px
-  color: #000
-  opacity: .7
+  color: rgb(var(--theme-color))
+  filter: brightness(.75)
 input
   width: 100%
   padding: 8px 12px
@@ -102,6 +102,9 @@ p
   border-left: 4px solid rgb(var(--theme-color))
   background-color: rgba(var(--theme-color),.05)
   border-radius: 0 16px 16px 0
+  p
+    color: rgb(var(--theme-color))
+    filter: brightness(0.2)
 .links
   display: flex
   flex-wrap: wrap
@@ -156,6 +159,8 @@ p
   p
     font-size: 14px !important
     opacity: 1
+  a
+    color: rgb(var(--theme-color)) !important
 </style>
 <script>
 
@@ -234,10 +239,14 @@ export default {
         '5, 91, 255',
         '127, 181, 181',
         '153, 153, 80',
+        '5, 75, 94',
+        '4, 114, 122',
+        '216, 119, 49',
+        '229, 202, 82',
+        '5, 74, 117',
       ]
       let color = colors[Math.floor(Math.random() * colors.length)]
       document.documentElement.style.setProperty('--theme-color', color)
-
     }
   }
 }
