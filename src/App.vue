@@ -31,7 +31,7 @@
     </div>
   </div>
   <footer>
-    Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a> | Made with 🥞 in Taiwan | <a
+    Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a> | Made with <span @click="randomThemeColor">🥞</span> in Taiwan | <a
       href="https://github.com/gnehs/sitcon-2022-issue-generator" target="_blank">GitHub</a>
   </footer>
 </template>
@@ -45,6 +45,7 @@ body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-ma
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 *
   box-sizing: border-box
+  transition: all 0.2s ease
 a
   color: rgb(var(--theme-color))
   &:hover
@@ -77,7 +78,6 @@ input
   border: 1px solid var(--border-color)
   border-radius: 4px
   font-size: 1.25rem
-  transition: border-color 0.2s ease-in-out
   &:focus
     outline: none
     border: 1px solid rgb(var(--theme-color))
@@ -118,7 +118,6 @@ p
     padding: 4px 8px
     border-radius: 8px
     text-decoration: none
-    transition: all 0.2s ease-in-out
     &:hover
       box-shadow: 0 10px 20px -10px rgba(var(--theme-color),1)
       transform: translateY(-3px)
@@ -136,7 +135,6 @@ p
   border-radius: 8px
   padding: .5em .75em
   cursor: pointer
-  transition: all .2s ease-in-out
   &:hover
     box-shadow: 0 10px 20px -10px rgba(var(--theme-color),1)
     transform: translateY(-3px)
