@@ -38,7 +38,7 @@
 
 <style lang="sass">
 \:root
-  --theme-color: 5,91,255
+  --theme-color: 244, 169, 64
   --border-color: #ddd
   line-height: 1.5
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
@@ -147,6 +147,8 @@ p
   content: "🥞"
 .v-name:before
   content: "📛"
+.v-md-editor__toolbar-item
+  color: rgb(var(--theme-color)) !important
 .vuepress-markdown-body
   color: #000 !important
   padding: 20px 20px 30px !important
@@ -205,6 +207,7 @@ export default {
   },
   mounted() {
     this.updateLinks()
+    this.randomThemeColor()
   },
   methods: {
     updateLinks() {
@@ -223,6 +226,18 @@ export default {
       for (let link of this.links) {
         window.open(link.href)
       }
+    },
+    randomThemeColor() {
+      // set :root --theme-color to a random color
+      let colors = [
+        '244, 169, 64',
+        '5, 91, 255',
+        '127, 181, 181',
+        '153, 153, 80',
+      ]
+      let color = colors[Math.floor(Math.random() * colors.length)]
+      document.documentElement.style.setProperty('--theme-color', color)
+
     }
   }
 }
