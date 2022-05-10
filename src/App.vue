@@ -27,13 +27,12 @@
     <button @click="createIssue" class="magic-button">🪄 來點魔法！</button>
     <p class="text-center">若魔法施展失敗，請檢查瀏覽器是否封鎖了快顯視窗，或直接點擊下方連結。</p>
     <div class="links">
-      <a v-for="link in links" :href="link.href" target="_blank" :key="link.title">{{ link.title }}</a>
+      <a v-for="link in links" :href="link.href" target="_blank" :key="link.title" v-text="link.title" />
     </div>
   </div>
   <footer>
-    Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a>.<br>
-    Made with 🥞 in Taiwan.<br>
-    <a href="https://github.com/gnehs/sitcon-2022-issue-generator" target="_blank">GitHub</a>
+    Developed by <a href="https://gnehs.net" target="_blank">勝勝寶寶</a> | Made with 🥞 in Taiwan | <a
+      href="https://github.com/gnehs/sitcon-2022-issue-generator" target="_blank">GitHub</a>
   </footer>
 </template>
 
@@ -44,13 +43,13 @@
   line-height: 1.5
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
-* 
+*
   box-sizing: border-box
 a
-  color: rgb(var(--theme-color)) 
+  color: rgb(var(--theme-color))
   &:hover
     opacity: 0.8
-    
+
 header
   padding: 64px 0
   margin-bottom: 16px
@@ -59,7 +58,7 @@ header
     font-size: 2rem
 footer
   font-size: 0.875rem
-  margin-top: 16px
+  margin-top: 32px
   padding: 32px 0
   text-align: center
   color: #999
@@ -67,9 +66,9 @@ footer
 
 label
   display: inline-block
-  font-size: 1rem 
+  font-size: 1rem
   margin-top: 16px
-  margin-bottom: 8px  
+  margin-bottom: 8px
   color: #000
   opacity: .7
 input
@@ -81,27 +80,26 @@ input
   transition: border-color 0.2s ease-in-out
   &:focus
     outline: none
-    border: 1px solid rgb(var(--theme-color)) 
+    border: 1px solid rgb(var(--theme-color))
 p
   font-size: 1rem
   opacity: 0.5
   margin: 0
 .text-center
   text-align: center
-.container 
-  width: calc(100vw - 20px)
-  max-width: 960px
+.container
+  width: min(calc(100vw - 40px),960px)
   margin: 0 auto
   font-size: 16px
 .title
   font-size: 1.25rem
   font-weight: bold
-  color: rgb(var(--theme-color)) 
+  color: rgb(var(--theme-color))
   margin-bottom: 8px
 .box
-  padding: 16px 24px 
+  padding: 16px 24px
   margin-bottom: 16px
-  border-left: 4px solid rgb(var(--theme-color)) 
+  border-left: 4px solid rgb(var(--theme-color))
   background-color: rgba(var(--theme-color),.05)
   border-radius: 0 16px 16px 0
 .links
@@ -109,11 +107,25 @@ p
   flex-wrap: wrap
   justify-content: center
   align-items: center
-  gap: 16px 
+  gap: 8px
+  margin-top: 4px
+  a
+    background-color: rgb(var(--theme-color))
+    color: #fff
+    padding: 4px 8px
+    border-radius: 8px
+    text-decoration: none
+    transition: all 0.2s ease-in-out
+    &:hover
+      box-shadow: 0 10px 20px -10px rgba(var(--theme-color),1)
+      transform: translateY(-3px)
+    &:active
+      box-shadow: 0 5px 10px -5px rgba(var(--theme-color),1)
+      transform: translateY(-1px)
 .magic-button
   background-color: rgb(var(--theme-color))
   color: #fff
-  font-size: 2rem 
+  font-size: 2rem
   display: block
   margin: 8px auto
   margin-top: 32px
@@ -135,6 +147,13 @@ p
   content: "🥞"
 .v-name:before
   content: "📛"
+.vuepress-markdown-body
+  color: #000 !important
+  padding: 20px 20px 30px !important
+  font-size: 14px !important
+  p
+    font-size: 14px !important
+    opacity: 1
 </style>
 <script>
 
