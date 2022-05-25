@@ -50,7 +50,7 @@
   --theme-color: 244, 169, 64
   --border-color: #ddd
   line-height: 1.5
-  accent-color: var(--theme-color)
+  accent-color: rgb(var(--theme-color))
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 *
@@ -90,9 +90,9 @@ input:not([type="checkbox"])
   font-size: 1.25rem
   &:focus
     outline: none
-    border: 1px solid rgb(var(--theme-color)) 
+    border: 1px solid rgb(var(--theme-color))
 input[type="checkbox"]
-  accent-color: var(--theme-color)
+  accent-color: rgb(var(--theme-color))
   margin-right: 8px
 p
   font-size: 1rem
