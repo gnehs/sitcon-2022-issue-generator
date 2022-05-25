@@ -24,6 +24,15 @@
       @change="updateLinks"
       :toolbar="toolbar">
     </v-md-editor>
+    <label>Options</label>
+    <div class="options">
+      <div class="option">
+        <input type="checkbox" v-model="options.autoAssign" @change="updateLinks" id="autoAssign" />
+        <label for="autoAssign">
+          自動 Assign 組長
+        </label>
+      </div>
+    </div>
     <button @click="createIssue" class="magic-button">🪄 來點魔法！</button>
     <p class="text-center">若魔法施展失敗，請檢查瀏覽器是否封鎖了快顯視窗，或直接點擊下方連結。</p>
     <div class="links">
@@ -41,6 +50,7 @@
   --theme-color: 244, 169, 64
   --border-color: #ddd
   line-height: 1.5
+  accent-color: var(--theme-color)
 body,html,.v-md-textarea-editor pre, .v-md-textarea-editor textarea,.vuepress-markdown-body
   font-family: 'Ubuntu Mono', 'Noto Sans TC', sans-serif !important
 *
@@ -72,7 +82,7 @@ label
   margin-bottom: 8px
   color: rgb(var(--theme-color))
   filter: brightness(.75)
-input
+input:not([type="checkbox"])
   width: 100%
   padding: 8px 12px
   border: 1px solid var(--border-color)
@@ -80,7 +90,10 @@ input
   font-size: 1.25rem
   &:focus
     outline: none
-    border: 1px solid rgb(var(--theme-color))
+    border: 1px solid rgb(var(--theme-color)) 
+input[type="checkbox"]
+  accent-color: var(--theme-color)
+  margin-right: 8px
 p
   font-size: 1rem
   opacity: 0.5
@@ -167,19 +180,22 @@ export default {
     return {
       title: '[#{group}] 填寫蓬蓬鬆餅預約表單',
       description: '請#{group}組協助填寫蓬蓬鬆餅預約表單。\n\n[傳送門](https://pancake.gnehs.net/)',
-      groupList: [
-        '議程',
-        '總召',
-        '編輯',
-        '製播',
-        '開發',
-        '設計',
-        '財務',
-        '紀錄',
-        '行政',
-        '行銷',
-        '場務',
-      ],
+      groupList: {
+        '議程': ['index.asp'],
+        '總召': ['YukinaMochizuki'],
+        '編輯': ['fanlan1210'],
+        '製播': ['camel0311'],
+        '開發': ['gnehs'],
+        '設計': ['yuyoyuyo850'],
+        '財務': ['an22003937'],
+        '紀錄': ['littlechin'],
+        '行政': ['april1026'],
+        '行銷': ['y920531'],
+        '場務': ['rebeeca0922'],
+      },
+      options: {
+        autoAssign: true,
+      },
       links: [],
       toolbar: {
         pancake: {
@@ -215,10 +231,15 @@ export default {
   methods: {
     updateLinks() {
       this.links = []
-      for (let group of this.groupList) {
+      for (let [group, assignUsers] of Object.entries(this.groupList)) {
         let title = this.title.replaceAll('#{group}', group)
         let description = this.description.replaceAll('#{group}', group)
+
+        if (this.options.autoAssign) {
+          description = `/assign @${assignUsers.join(' @')}\n` + description
+        }
         description = `/label "Status::Inbox" "組別::${group}組"\n` + description
+
         let link = new URL('https://gitlab.com/sitcon-tw/2022/2022-board/-/issues/new')
         link.searchParams.append('issue[title]', title)
         link.searchParams.append('issue[description]', description)
